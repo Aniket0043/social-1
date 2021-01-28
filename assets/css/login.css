@@ -1,0 +1,94 @@
+body{
+    margin: 0%;
+    padding: 0%;
+}
+.main{
+    display: flex;
+    align-items: center;
+    height: auto;
+    justify-content: center;
+    background-image: url("../image/eberhard-grossgasteiger-y2azHvupCVo-unsplash.jpg");
+    background-position: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:100% 100%;   
+}
+.login-div{
+    margin: 125px;
+    width: 400px;
+    height: 319px;
+    border-radius: 8%;
+    box-shadow: 2px 8px 28px
+    
+}
+.login-div-1{
+    display:flex;
+    font-size: 8vh;
+    margin-top: 45px;
+    font-family: serif;
+    justify-content:center;
+
+    color: rgb(27, 26, 26);
+}
+.login-div-2{
+    display:flex;
+    margin-top: 23px;
+    justify-content:center;
+   
+    border-radius: 4%;
+}
+.login-email>input{
+    margin-top:20px;
+    height: 30px;
+    width: 200px;
+    display:flex;
+    justify-content:center;
+    border-radius: 9px;
+    border: black ;
+    text-decoration: none;
+}
+.login-password>input{
+    display:flex;
+    height: 30px;
+    width: 200px;
+    margin-top:15px;
+    justify-content:center;
+    border-radius: 9px;
+    border: black ;
+    text-decoration: none;
+}
+.login-submit>button{
+    display:flex;
+    height: 30px;
+    font-size: 18px;
+    width: 200px;
+    font-family: serif;
+    text-decoration: none;
+    justify-content:center;
+    align-items: center;
+    margin-top:15px;
+    border-radius: 9px;
+    border: black ;
+    text-decoration: none;
+}
+button:hover{
+    background-color:rgb(218, 214, 214)
+   
+}
+.login-fail{
+    font-family: serif;
+    width:400px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin-top:90px;
+    color: rgb(27, 26, 26);
+    border-radius: 19px;
+    box-shadow: 2px 8px 28px
+}
+.login-fail-1>a{
+    text-decoration:none;
+}
+
+
