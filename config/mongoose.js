@@ -5,5 +5,7 @@ db.on("error",function(err){
     console.log("error",err)
 })
 db.once("open",function(){
-    console.log("connect to the database")
+    //console.log("connect to the database")
 })
+module.exports =db;
+

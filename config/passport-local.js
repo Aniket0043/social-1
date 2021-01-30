@@ -17,6 +17,7 @@ function(email, password,done) {
             console.log("invalid username/password");
             return done(null,false)
         }
+
         return done(null,user)   
     })
 
@@ -25,6 +26,7 @@ function(email, password,done) {
 ));
 //serializer the user to decide which key is to be kept in the cookie_session
 passport.serializeUser(function(user,done){
+    console.log(user._id)
     done(null,user.id)
 })
 //deserialize the user from the key in the cookie_session
@@ -32,9 +34,29 @@ passport.deserializeUser(function(id,done){
     User.findById(id,function(err,user){
         if(err){
         console.log("error in finding user--passport")
-        return done(null,err)
+        return done(err)
     }
-    return done(null,err) 
-});
+    console.log(user)
+    return done(null,user) 
 })
+
+})
+
+//middleware for check authentication
+passport.checkAuthentication=function(req,res,next){
+    //if the user in sign in
+    if(req.isAuthenticated()){
+        return next();
+    }
+    ///user is not signed in
+    return res.redirect("sign-in")
+}
+
+passport.setAuthenticatedUser=function(req,res,next){
+    if(req.isAuthenticated()){
+        res.locals.user=req.user;
+        return next();
+    }
+    next() 
+}
 module.exports=passport; 
