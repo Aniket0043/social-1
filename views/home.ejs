@@ -7,29 +7,88 @@
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <h1>the codial</h1>
     <section id="feedpost">
-        <form action="/posts/create" id="new-post-form" method="post">
-            <textarea name="content" cols="30" rows="3" placeholder="type here"></textarea>>
-            <input type="submit" value="post">
-        </form>
+        <section id="user-friends">
+            <h2>friends</h2>
+            <%for(u of all_users){%>
+               <div class="user-friend-profile">
+                   <a href="/user/profile/<%=u.id%>"><%=u.name%></a>
+               </div>
+             <%}%>
+        </section>
         <div id="post-list-container">
-            <ul>
+            <div class="post-create">
+                <%if(locals.user){%>
+                <div class="post-create-1">
+                   <form action="/posts/create" id="new-post-form" method="post">
+                    <div class="post-create-2">
+                    <textarea name="content" cols="30" rows="3" placeholder="type here"></textarea>
+                  </div>
+                    <div class="submit"><input type="submit" value="post">
+                   </form>
+               </div>
+                <%}%>
+               </div>
+            <div class="user-post">
                 <%for(post of posts){%>
-                    <li>
-                        <p>
-                            <%=post.content%>
-                            <br>
-                            <small>
+                    <div class="user-post-1">
+                        <div class="user-name">
                                 <%=post.user.name%>
+                        </div>
+                        <div class="user-content">
+                            <%=post.content%>
+                        </div>
+                        
+                            <%if (locals.user && locals.user.id==post.user.id){%>
+                            <small>
+                                <div class="delete-post">
+                                <a href="/posts/destroy/<%=post.id%>">delete</a>
+                                </div>
                             </small>
-                        </li>
-
-                        </p>
+                            <%}%> 
+                        </div>
+                        <div class="comment">
+                            <div class="form-content">
+                            <%if(locals.user){%>
+                                <form action="/comments/create"  method="post">
+                                    <input type="text" name="content"  placeholder="add a comment">
+                                    <input type="hidden" name="post" value= <%=post._id%> >
+                                    <input type="submit" value=" add Comment">
+                                </form>
+                                <%}%>
+                            </div>
+                         <div class="comment-content">
+                                 <%for(comment of post.comments){%>
+                                 <div>
+                        
+                                    <div class="comment-content-user">
+                                       
+                                     <%=comment.content%>
+                                    </div>
+                                </div>
+            
+                                 <div class="comment-content-user-name">
+                                    <%if (locals.user && locals.user.id==comment.user.id){%>
+                                        <small>
+                                            <a href="/comments/destroy/<%=comment.id%>">delete</a>
+                                        </small>
+                                        <%}%>
+                                 <small>
+                                    <%=comment.user.name%>
+                                 </small>
+                                </div>
+                                 <%}%>
+                             
+                             </div>
+                         </div>
+                         
                    
                     <%}%>
-            </ul>
+                
+                    </div>
+                    </div>
         </div>
-    </section>
+        </section>
+   </section>
 </body>
 </html>

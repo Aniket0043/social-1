@@ -2,7 +2,23 @@ const User=require("../models/user");
 const mess_controller = require("./mess_controller");
 const passport=require("passport")
 module.exports.profile =function(req, res){
-    return res.render("profile")
+    User.findById(req.params.id,function(err,user){
+        return res.render("profile",{
+            title:"User profile",
+            profile_user:user
+        })
+    })
+    
+}
+
+module.exports.update=function(req, res){
+    if(req.user.id==req.params.id){
+        User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
+            return res.redirect("back")
+        })
+    }else{
+        return res.status(401).send("unathrised")
+    }
 }
 module.exports.photos = function(req, res){
     res.end("<h1>user profile photo</h1>")
@@ -53,10 +69,12 @@ module.exports.create=function(req,res){
 
 //sign in and create a session for the user 
 module.exports.createsession=function(req,res){
+    req.flash("success","logged in successfully")
     console.log(req.cookies)
     res.redirect("/")
 }
 module.exports.destroySession=function(req,res){
     req.logout()
+    req.flash("success","logged in successfully")
     return res.redirect("/");
 }

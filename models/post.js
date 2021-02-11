@@ -8,8 +8,12 @@ const mongoose = require('mongoose');
          type:mongoose.Schema.Types.ObjectId,
          ref:"User"
      },
+     //include the array of ids of comment
+     comments:[
+         {type:mongoose.Schema.Types.ObjectId,
+        ref:"Comment"},
+     ]
     
-
  },{
     timestamps:true
  })

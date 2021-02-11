@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/_header.css">
     <title>home</title>
 </head>
 <body>
-    <h1>aniket</h1>
-    <ul>
+    <div>
         <%if(locals.user){%>
-
-            <li><a href="/user/profile">
-                <%=user.name%></a></li>
-            <li>
+            <div class="nav-bar-profile">
+            <div class="nav-profile">
+                <a href="/user/profile/<%=user.id%>"><%=user.name%></a>
+                
+            <div>
                 <a href="/user/sign-out">sign-out</a>
-            </li>
-            
-
+            </div>
+            </div>
         <%}else{%>
-            <li>
+            <div class="nav-bar-login">
+            <div class="nav-sign-in">
                 <a href="/user/sign-in">sign-in</a>
-            </li>
-            <li>
+            </div>
+            <div class="nav-sign-up">
                 <a href="/user/sign-up">sign-up</a>
-            </li>
+            </div>
+           </div>
 
             <%}%>
-
-    </ul>
+        </div>
 </body>
 </html>

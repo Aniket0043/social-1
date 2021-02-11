@@ -1,4 +1,110 @@
-h1{
-    border: black solid ;
+#feedpost {
+    display: flex;
+    justify-content: space-between;
+    border:black solid;
+}
+.user-link>a{
+  color: black;
+}
+.friends{
+    width: 29%;
+}
+.container-post{
+    width: 100%;
+    display:flex;
+    
+}
+#post-list-container{
+    width: 100%; 
+    border: black solid;
+}
+#user-friends{
+    width: 35%;
+    margin-left: 22px;
+    align-items: center;
+}
+.post-create{
+    width: 100%;
+}
+.post-create-1{
+    display: flex;
+    justify-content: center;
+}
+.post-create-2>textarea{
+    border: black solid;
+}
+.user-post{
+    margin:0px;
+}
+.user-post-1{
+    padding: 8px;
+    margin-top: 11px;
+    border: black solid;
+    margin: 10px;
+    border-radius: 16px;
+    box-shadow: #141314 -1px -1px 6px -1px;
 
 }
+.user-name{
+    margin: 3px;
+    padding-left: 11px;
+   
+    margin: 0px;
+    border: black solid;
+    border-width: thin;
+}
+.user-content{
+    height: 154px;
+    justify-content: center;
+    display: flex;
+
+}
+.comment{
+    margin: 0px;
+}
+.form-content{
+    margin: 0px;
+}
+.comment-content{
+    margin: 0px;
+    
+}
+.comment-content-user{
+    margin: 0px;
+    
+}
+.comment-content-user-name{
+    
+    display: flex;
+    font-size: small;
+    justify-content: flex-end;
+}
+.submit{
+    display: flex;
+    justify-content:center;
+}
+.delete-post{
+    display: flex;
+    justify-content:flex-end;
+}
+.comment{
+    padding: 8px;
+    margin-top: 11px;
+    margin: 10px;
+    border-radius: 16px;
+}
+.user-friend-profile{
+    margin-right: 25px;
+    padding: 1px;
+    margin-top: 14px;
+    border: #4e4b4b solid;
+    display: flex;
+    border-radius: 7px;
+    box-shadow: #141314 2px -1px 6px -1px;
+}
+.post-create-2{
+    margin: 7px;
+}
+
+
+

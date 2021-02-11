@@ -7,7 +7,20 @@
 </head>
 <body>
     <h1>user profile</h1>
-    <p><%=user.name%></p>
-    <p><%=user.email%></p>
+    
+    <%if(user.id==profile_user.id){%>
+        <form action="/user/update/<%=profile_user.id%>" method="post">
+            <input type="text" name="name" placeholder="your name" value="<%=profile_user.name%>">
+            <input type="email" name="email" placeholder="your name" value="<%=profile_user.email%>">
+            <input type="submit" value="update">
+        </form>
+        
+
+        <%}else{%>
+            <p><%=profile_user.name%></p>
+            <p><%=profile_user.email%></p>
+
+
+        <%}%>
 </body>
 </html>

@@ -10,6 +10,8 @@ const cookieParser=require("cookie-parser")
 const passport=require("passport")
 const passportLocal=require("./config/passport-local")
 const MongoStore=require("connect-mongo")(session);
+const flash=require("connect-flash")
+const customMid=require("./config/middleware")
 //use static-file
 app.use(express.static("./assets"));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -49,6 +51,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser)
+app.use(flash());
+app.use(customMid.setFlash);
 app.use("/",require("./routes/index"))
 
 app.listen(port,function(err){ 

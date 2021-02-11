@@ -1,0 +1,40 @@
+.nav-bar-login{
+    display: flex;
+    justify-content: flex-end;
+    border: black solid;
+}
+.nav-sign-in{
+    display: flex;
+    align-items: center;
+    font-size: 24px;  
+}
+.nav-sign-up{
+    font-size: 24px;
+    margin-right: 5px;  
+}
+a{
+    text-decoration: none;
+    color: rgb(37, 31, 31); 
+    margin-right: 17px;
+}
+.nav-bar-profile{
+    border: black solid;
+}
+.nav-profile{
+    display: flex;
+    justify-content:flex-end;
+    font-size: 24px;
+    padding: 7px;
+    border-bottom-width: thin;
+}
+.nav-sign-out{
+    font-size: 24px;
+    margin-right: 5px;
+    padding: 7px;
+}
+.nav-sign-up{
+    font-size: 24px;
+    margin-right: 5px;
+    padding: 7px;
+}
+
